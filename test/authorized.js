@@ -40,6 +40,13 @@ describe('Authorization API', () => {
             expect(response.status).to.eql(400);
             expect(response.body.code).to.eql('1200');
             expect(response.body.message).to.eql('UserName and Password required.');
-        })
+        });
+        it('No password provided', async function() {
+            const response = await request.post('/Account/v1/Authorized')
+                .send({userName: "Testing"});
+            expect(response.status).to.eql(400);
+            expect(response.body.code).to.eql('1200');
+            expect(response.body.message).to.eql('UserName and Password required.');
+        });
     });
 });
