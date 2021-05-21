@@ -4,7 +4,7 @@
   "description": "Cypress automation Testing",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cypress:open": "cypress open"
   },
   "author": "Brian Icochea",
   "license": "ISC",
