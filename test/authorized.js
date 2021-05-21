@@ -1,6 +1,7 @@
 const User = require('../controllers/models/user.js');
 
-const request = require('supertest')('https://demoqa.com');
+const config = require('../config/environment.json');
+const request = require('supertest')(config.host);
 const expect = require('chai').expect;
 var faker = require('faker');
 
