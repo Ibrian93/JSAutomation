@@ -1,25 +1,17 @@
 const User = require('../controllers/models/user.js');
 
-
-let chai = require('chai');
-let chaiHttp = require('chai-http');
-let should = chai.should();
-let config = require('../config/environment.json');
+const request = require('supertest')('https://demoqa.com');
+const expect = require('chai').expect;
 
 
-chai.use(chaiHttp);
-
-describe('The given user is authorized', () => {
-    it('The default user should be authorized', (done) => {
-
-        const defaultUser = new User("ibrian93", "MyTesting83!");
-        chai.request(config.host)
-            .post('/Account/v1/Authorized')
-            .send(defaultUser)
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.equal(true);
-                done();
-            })
+describe('Authorization API', () => {
+    describe('Authorized User', () => {
+        it('The default user should be authorized', async function () {
+            const defaultUser = new User("ibrian93", "MyTesting83!");
+            const response = await request.post('/Account/v1/Authorized')
+                .send(defaultUser)
+            expect(response.status).to.eql(200);
+            expect(response.body).to.equal(true);
+        });
     });
 });
