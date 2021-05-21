@@ -25,6 +25,14 @@ describe('Authorization API', () => {
                 .send(randomUser);
             expect(response.status).to.eql(200);
             expect(response.body).to.equal(false);
-        })
-    })
+        });
+        it('A non existant user should not be authorized', async function() {
+            const randomUser = new User(faker.internet.email(), "MyTesting83!");
+            const response = await request.post('/Account/v1/Authorized')
+                .send(randomUser);
+            expect(response.status).to.eql(404);
+            expect(response.body.code).to.eql('1207');
+            expect(response.body.message).to.eql('User not found!');
+        });
+    });
 });
