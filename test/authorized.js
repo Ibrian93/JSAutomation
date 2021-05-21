@@ -6,7 +6,7 @@ const expect = require('chai').expect;
 var faker = require('faker');
 
 
-describe('Authorization API', () => {
+describe('Account API, Authorization Endpoint', () => {
     describe('Authorized User', () => {
         it('The default user should be authorized', async function () {
             const defaultUser = new User("ibrian93", "MyTesting83!");
