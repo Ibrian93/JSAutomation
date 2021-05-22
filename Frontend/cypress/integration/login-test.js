@@ -9,5 +9,8 @@ describe('DemoQA Login Test cases', () => {
         signInPage.fillEmail("ibrian93");
         signInPage.fillPassword("MyTesting83!");
         signInPage.submit();
+
+        homePage.getLoggedUserName().should('exist');
+        homePage.getLoggedUserName().should('contain', "ibrian93");
     });
 });

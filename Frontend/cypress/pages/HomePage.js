@@ -11,6 +11,10 @@ class HomePage {
         const signIn = new SignInPage();
         return signIn;
     }
+
+    getLoggedUserName() {
+        return cy.get('#userName-value');
+    }
 }
 
 export default HomePage;
