@@ -4,7 +4,7 @@ const config = require('../config/environment.json');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const expect = chai.expect;
-var faker = require('faker');
+var { faker } = require('@faker-js/faker');
 
 chai.use(chaiHttp);
 
@@ -24,11 +24,12 @@ describe('Account API, Authorization Endpoint', () => {
                 })
                 .catch(function (err) {
                     throw err;
-                });         
+                });
         });
     });
     describe('Non authorized User', () => {
-        it('A user who has not generated a token should not be authorized', async function() {
+        it('A user who has not generated a token should not be authorized', async function () {
+            console.log(faker.internet.email())
             const randomUser = new User(faker.internet.email(), "MyTesting83!");
             await request.post(userRegistrationEndpoint)
                 .send(randomUser);
@@ -42,7 +43,7 @@ describe('Account API, Authorization Endpoint', () => {
                     throw err;
                 });
         });
-        it('A non existant user should not be authorized', function() {
+        it('A non existant user should not be authorized', function () {
             const randomUser = new User(faker.internet.email(), "MyTesting83!");
             request.post(authorizedEndpoint)
                 .send(randomUser)
@@ -54,11 +55,11 @@ describe('Account API, Authorization Endpoint', () => {
                 .catch((err) => {
                     throw err;
                 });
-            
+
         });
-        it('No username provided', function() {
+        it('No username provided', function () {
             request.post(authorizedEndpoint)
-                .send({password: "MyTesting83!"})
+                .send({ password: "MyTesting83!" })
                 .then((res) => {
                     expect(res.status).to.eql(400);
                     expect(res.body.code).to.eql('1200');
@@ -68,9 +69,9 @@ describe('Account API, Authorization Endpoint', () => {
                     throw err;
                 });
         });
-        it('No password provided', async function() {
+        it('No password provided', async function () {
             request.post(authorizedEndpoint)
-                .send({userName: "Testing"})
+                .send({ userName: "Testing" })
                 .then((res) => {
                     expect(res.status).to.eql(400);
                     expect(res.body.code).to.eql('1200');

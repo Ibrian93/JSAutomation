@@ -4,7 +4,7 @@ const config = require('../config/environment.json');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const expect = chai.expect;
-var faker = require('faker');
+var { faker } = require('@faker-js/faker');
 
 chai.use(chaiHttp);
 
@@ -15,10 +15,10 @@ const request = chai.request(config.host);
 
 describe('Account API, User Generation Token Endpoint', () => {
     describe('User with valid credentials can generate token', () => {
-        it('User generates a token', async function() {
+        it('User generates a token', async function () {
             const randomUser = new User(faker.internet.email(), "MyTesting83!");
             await request.post(userRegistrationEndpoint)
-                .send({userName: randomUser.userName, password: "MyTesting83!"});
+                .send({ userName: randomUser.userName, password: "MyTesting83!" });
             request.post(authorizationEndPoint)
                 .send(randomUser)
                 .then(function (res) {
