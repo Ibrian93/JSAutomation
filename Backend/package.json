@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend testing with chai",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ibrian93/JSAutomation.git"
+  },
+  "author": "Brian Icochea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ibrian93/JSAutomation/issues"
+  },
+  "homepage": "https://github.com/Ibrian93/JSAutomation#readme",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "mocha": "^10.0.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^6.3.1"
+  }
+}
