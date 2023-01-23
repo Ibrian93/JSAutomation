@@ -9,7 +9,9 @@
   "author": "Brian Icochea",
   "license": "ISC",
   "dependencies": {
-    "cypress": "8.4.1",
     "yarn": "^1.22.11"
+  },
+  "devDependencies": {
+    "cypress": "^12.3.0"
   }
 }
