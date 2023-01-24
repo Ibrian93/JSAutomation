@@ -16,11 +16,6 @@ class SignInPage {
         passwordField.type(value);
         return this;
     }
-
-    submit() {
-        const loginButton = cy.get('#login');
-        loginButton.click();
-    }
 }
 
 export default SignInPage;
