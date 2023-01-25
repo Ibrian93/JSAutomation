@@ -1,16 +1,12 @@
-import HomePage from '../pages/HomePage';
+var environment = require('../fixtures/environment.json');
 
 describe('DemoQA Login Test cases', () => {
     it('Login User with valid credentials', () => {
-        const homePage = new HomePage();
-        homePage.visit();
-
-        const signInPage = homePage.goToSignInPage();
-        signInPage.fillEmail("ibrian93");
-        signInPage.fillPassword("MyTesting83!");
-        signInPage.submit();
-
-        homePage.getLoggedUserName().should('exist');
-        homePage.getLoggedUserName().should('contain', "ibrian93");
+        cy.visit(environment.home_page_url);
+        cy.get('#login').click();
+        cy.get('#userName').type('ibrian93');
+        cy.get('#password').type('MyTesting83!')
+        cy.get('#login').click();
+        cy.get('#userName-value').should('contain','ibrian93')
     });
 });
