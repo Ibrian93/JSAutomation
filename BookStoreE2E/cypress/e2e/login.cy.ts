@@ -15,5 +15,10 @@ describe('DemoQA Login Test cases', () => {
 
         cy.get('#userName-value').should('contain','ibrian93')
     });
+
+    it('Register User with valid inputs', () => {
+        const homePage = new HomePage();
+        homePage.visit();
+    }
 });
 

@@ -5,13 +5,13 @@ class SignInPage {
         cy.visit(environment.sign_in_url);
     }
     
-    fillEmail(value) {
+    fillEmail(value: string) {
         const emailField = cy.get('#userName');
         emailField.type(value);
         return this;
     }
     
-    fillPassword(value) {
+    fillPassword(value: string) {
         const passwordField = cy.get('#password');
         passwordField.type(value);
         return this;
