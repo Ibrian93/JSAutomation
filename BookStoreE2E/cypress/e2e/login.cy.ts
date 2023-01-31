@@ -19,6 +19,7 @@ describe('DemoQA Login Test cases', () => {
     it('Register User with valid inputs', () => {
         const homePage = new HomePage();
         homePage.visit();
+        
     }
 });
 
