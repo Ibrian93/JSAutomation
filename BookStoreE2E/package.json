@@ -4,13 +4,11 @@
   "description": "Cypress automation Testing",
   "main": "index.js",
   "scripts": {
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "author": "Brian Icochea",
   "license": "ISC",
-  "dependencies": {
-    "yarn": "^1.22.11"
-  },
   "devDependencies": {
     "cypress": "^12.3.0",
     "typescript": "^4.9.4"

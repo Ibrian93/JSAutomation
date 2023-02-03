@@ -2,3 +2,4 @@ package-lock.json
 yarn.lock
 *.lock
 node_modules/*
+cypress/videos/*

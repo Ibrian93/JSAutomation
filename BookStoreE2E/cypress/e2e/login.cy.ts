@@ -8,10 +8,7 @@ describe('DemoQA Login Test cases', () => {
         homePage.visit();
         homePage.goToSignInPage();
 
-        const signInPage = new SignInPage();
-        signInPage.fillEmail('ibrian93');
-        signInPage.fillPassword('MyTesting83!');
-        signInPage.submit();
+        cy.login('ibrian93', 'MyTesting83!')
 
         cy.get('#userName-value').should('contain','ibrian93')
     });
@@ -20,6 +17,6 @@ describe('DemoQA Login Test cases', () => {
         const homePage = new HomePage();
         homePage.visit();
         
-    }
+    });
 });
 

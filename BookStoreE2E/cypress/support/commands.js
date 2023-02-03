@@ -25,7 +25,15 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import './commands'
+
 Cypress.on('uncaught:exception', (err, runnable) => {
   // returning false here prevents Cypress from failing the test
   return false
 })
+
+Cypress.Commands.add('login', (username, password) => {
+    cy.get('#userName').type(username)
+    cy.get('#password').type(password)
+    cy.get('#login').click()
+})
+
