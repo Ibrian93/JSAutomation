@@ -1,4 +1,5 @@
 describe('DemoQA Login Test cases', () => {
+    before
     it('Login User with valid credentials', () => {
         cy.visit('/')
         cy.get('#login').click()
@@ -6,7 +7,7 @@ describe('DemoQA Login Test cases', () => {
         cy.get('#userName-value').should('contain','ibrian93')
     });
 
-    //it('Register User with valid inputs', () => {
-    //});
+    it('Register User with valid inputs', () => {
+    }).skip();
 });
 
